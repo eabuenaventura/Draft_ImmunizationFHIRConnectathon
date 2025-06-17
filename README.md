@@ -34,12 +34,12 @@ The project's objectives are as follows:
 | 3. Users will submit BULK data. **(POST)** | 7. Users will submit BULK data. **(POST)** |
 | 4. Users will retrieve vaccine record. **(GET)**  | 8. Users will retrieve vaccine record. **(GET)** |
 
-## Use Cases and Sample Data
+## Tracks and Sample Data
 
-- [Use Case #1 and #5](use-case-%231-%235)
-- [Use Case #2, #3, #6, and #7](use-case-%232-%233-%236-%237)
-- [Use Case #4 and #8](use-case-%234-%238)
-- [Postman Collections and Data]
+- [Tracks #1 and #5](tracks-%231-%235)
+- [Tracks #2, #3, #6, and #7](tracks-%232-%233-%236-%237)
+- [Tracks #4 and #8](tracks-%234-%238)
+- [Postman Collection and Environment](sample-data)
 
 
 ---

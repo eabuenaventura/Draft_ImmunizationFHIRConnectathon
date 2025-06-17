@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "90b77f4a-0869-4ba7-ad8a-abb4e494a332",
+		"name": "Immunization FHIR Resources",
+		"description": "A collection of FHIR resources",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26439483"
+	},
+	"item": [
+		{
+			"name": "Task 1 Get the ValueSet",
+			"item": [
+				{
+					"name": "Get Gender",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Seir}}/ValueSet/$expand?url=http://hl7.org/fhir/ValueSet/administrative-gender",
+							"host": [
+								"{{Seir}}"
+							],
+							"path": [
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://hl7.org/fhir/ValueSet/administrative-gender"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vaccine Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Seir}}/ValueSet/$expand?url=http://seir.dohnip.org/valueset/vaccine-name",
+							"host": [
+								"{{Seir}}"
+							],
+							"path": [
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://seir.dohnip.org/valueset/vaccine-name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Generic Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Seir}}/ValueSet/$expand?url=http://seir.dohnip.org/valueset/vaccine-generic-name",
+							"host": [
+								"{{Seir}}"
+							],
+							"path": [
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://seir.dohnip.org/valueset/vaccine-generic-name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Action Taken",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Action Reason",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Encouter Type",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"description": "Get the possible values from the ValueSet assigned from the following data elements"
+		},
+		{
+			"name": "Task 2 Create Immunization Patient",
+			"item": [
+				{
+					"name": "Create Immunization",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resourceType\": \"Immunization\",\r\n    \"id\": \"Example-Immunization-ID-01\",\r\n    \"meta\": {\r\n        \"versionId\": \"1\",\r\n        \"lastUpdated\": \"2025-06-14T19:31:38.046+00:00\",\r\n        \"source\": \"#d6ea2aeab3cf876e\",\r\n        \"profile\": [\r\n            \"http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-immunization.html\"\r\n        ]\r\n    },\r\n    \"extension\": [\r\n        {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/patient-philhealth-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n                \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n                \"value\": \"SOFIAR-PHILHEALTH-007\"\r\n            }\r\n        },\r\n        {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/patient-philsys-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n                \"system\": \"http://nationalidsystem.gov.ph/psn\",\r\n                \"value\": \"SOFIAR-PHILSYS-008\"\r\n            }\r\n        },\r\n        {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/mother-philhealth-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n                \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n                \"value\": \"SOFIAR-MOTHERS-PHILHEALTH-ABCDE\"\r\n            }\r\n        },\r\n        {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/mother-philsys-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n                \"system\": \"http://nationalidsystem.gov.ph/psn\",\r\n                \"value\": \"SOFIAR-MOTHERS-PHILSYS-FGHIJ\"\r\n            }\r\n        }\r\n    ],\r\n    \"identifier\": [\r\n        {\r\n            \"system\": \"urn:oid:1.2.3.4.5.6.7.8.9.16\",\r\n            \"value\": \"IMZ-2025-0007\"\r\n        }\r\n    ],\r\n    \"status\": \"completed\",\r\n    \"statusReason\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/immunization-status-reason\",\r\n                \"code\": \"MEDREC\",\r\n                \"display\": \"Medical record incomplete\"\r\n            }\r\n        ],\r\n        \"text\": \"Child presented with incomplete vaccination records, requiring catch-up.\"\r\n    },\r\n    \"vaccineCode\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://snomed.info/sct\",\r\n                \"code\": \"394579007\",\r\n                \"display\": \"Measles, mumps, and rubella vaccine\"\r\n            },\r\n            {\r\n                \"system\": \"urn://example.com/eLMIS-vaccine-codes\",\r\n                \"code\": \"MMR001\",\r\n                \"display\": \"MMR Vaccine\"\r\n            }\r\n        ],\r\n        \"text\": \"MMR Vaccine\"\r\n    },\r\n    \"patient\": {\r\n        \"reference\": \"Example-Patient-ID-01\",\r\n        \"display\": \"Sofia Ramirez\"\r\n    },\r\n    \"occurrenceDateTime\": \"2025-05-01T09:45:00+08:00\",\r\n    \"recorded\": \"2025-05-01T10:15:00+08:00\",\r\n    \"primarySource\": true,\r\n    \"location\": {\r\n        \"reference\": \"Example-Location-ID-01\",\r\n        \"display\": \"Barangay Health Station C\"\r\n    },\r\n    \"lotNumber\": \"WXYZ7890\",\r\n    \"expirationDate\": \"2026-10-31\",\r\n    \"site\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActSite\",\r\n                \"code\": \"LA\",\r\n                \"display\": \"Left Arm\"\r\n            }\r\n        ]\r\n    },\r\n    \"route\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration\",\r\n                \"code\": \"SC\",\r\n                \"display\": \"Subcutaneous\"\r\n            }\r\n        ]\r\n    },\r\n    \"doseQuantity\": {\r\n        \"value\": 0.5,\r\n        \"unit\": \"mL\",\r\n        \"system\": \"http://unitsofmeasure.org\",\r\n        \"code\": \"mL\"\r\n    },\r\n    \"performer\": [\r\n        {\r\n                        \"actor\":{\r\n                \"display\": \"Dr. Maria Santos\"\r\n            }\r\n        }\r\n    ],\r\n    \"note\": [\r\n        {\r\n            \"text\": \"Child presented with incomplete vaccination records. Administered second dose of MMR as part of catch-up. Mother advised on full vaccination schedule.\"\r\n        }\r\n    ],\r\n    \"protocolApplied\": [\r\n        {\r\n            \"series\": \"MMR 2-dose series\",\r\n            \"doseNumberPositiveInt\": 2,\r\n            \"seriesDosesPositiveInt\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Seir}}/Immunization/",
+							"host": [
+								"{{Seir}}"
+							],
+							"path": [
+								"Immunization",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resourceType\": \"Patient\",\r\n    \"id\": \"Example-Patient-ID-01\",\r\n    \"meta\": {\r\n        \"versionId\": \"1\",\r\n        \"lastUpdated\": \"2025-06-14T19:21:58.552+00:00\",\r\n        \"source\": \"#3477d32d6026e8e2\",\r\n        \"profile\": [\r\n            \"http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-patient.html\"\r\n        ]\r\n    },\r\n    \"extension\": [\r\n        {\r\n            \"url\": \"urn://example.com.ph/StructureDefinition/IndigenousPeople\",\r\n            \"valueBoolean\": true\r\n        }\r\n    ],\r\n    \"identifier\": [\r\n        {\r\n            \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n            \"value\": \"SOFIAR-PHILHEALTH-007\"\r\n        },\r\n        {\r\n            \"system\": \"http://nationalidsystem.gov.ph/psn\",\r\n            \"value\": \"SOFIAR-PHILSYS-008\"\r\n        }\r\n    ],\r\n    \"name\": [\r\n        {\r\n            \"use\": \"official\",\r\n            \"family\": \"Ramirez\",\r\n            \"given\": [\r\n                \"Sofia\"\r\n            ]\r\n        }\r\n    ],\r\n    \"gender\": \"female\",\r\n    \"birthDate\": \"1990-01-15\",\r\n    \"address\": [\r\n        {\r\n            \"extension\": [\r\n                {\r\n                    \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-region\",\r\n                    \"valueCodeableConcept\": {\r\n                        \"coding\": [\r\n                            {\r\n                                \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-regions\",\r\n                                \"code\": \"130000000\",\r\n                                \"display\": \"National Capital Region (NCR)\"\r\n                            }\r\n                        ]\r\n                    }\r\n                },\r\n                {\r\n                    \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-province\",\r\n                    \"valueCodeableConcept\": {\r\n                        \"coding\": [\r\n                            {\r\n                                \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-provinces\",\r\n                                \"code\": \"137400000\",\r\n                                \"display\": \"National Capital Region - Fourth District\"\r\n                            }\r\n                        ]\r\n                    }\r\n                },\r\n                {\r\n                    \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-city\",\r\n                    \"valueCodeableConcept\": {\r\n                        \"coding\": [\r\n                            {\r\n                                \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-cities\",\r\n                                \"code\": \"137401\",\r\n                                \"display\": \"Quezon City\"\r\n                            }\r\n                        ]\r\n                    }\r\n                },\r\n                {\r\n                    \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-barangay\",\r\n                    \"valueCodeableConcept\": {\r\n                        \"coding\": [\r\n                            {\r\n                                \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-barangays\",\r\n                                \"code\": \"137401001\",\r\n                                \"display\": \"Barangay 1\"\r\n                            }\r\n                        ]\r\n                    }\r\n                }\r\n            ],\r\n            \"use\": \"home\",\r\n            \"line\": [\r\n                \"123 Main Street\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Seir}}/Patient/",
+							"host": [
+								"{{Seir}}"
+							],
+							"path": [
+								"Patient",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Location",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resourceType\": \"Location\",\r\n    \"id\": \"Example-Location-ID-01\",\r\n    \"meta\": {\r\n        \"versionId\": \"1\",\r\n        \"lastUpdated\": \"2025-06-14T21:13:54.530+00:00\",\r\n        \"source\": \"#6bcbd657f9af6d1f\",\r\n        \"profile\": [\r\n            \"https://build.fhir.org/ig/UP-Manila-SILab/ph-core/StructureDefinition-ph-core-location.html\"\r\n        ]\r\n    },\r\n    \"identifier\": [\r\n        {\r\n            \"system\": \"https://nhfr.doh.gov.ph/VActivefacilitiesList\",\r\n            \"value\": \"86683\"\r\n        }\r\n    ],\r\n    \"status\": \"active\",\r\n    \"name\": \"Barangay Health Station C\",\r\n    \"mode\": \"instance\",\r\n    \"physicalType\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/location-physical-type\",\r\n                \"code\": \"bu\",\r\n                \"display\": \"Building\"\r\n            }\r\n        ],\r\n        \"text\": \"Barangay Health Station\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Seir}}/Location/",
+							"host": [
+								"{{Seir}}"
+							],
+							"path": [
+								"Location",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Encounter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resourceType\": \"Encounter\",\r\n    \"id\": \"Example-Location-ID-01\",\r\n    \"meta\": {\r\n        \"versionId\": \"1\",\r\n        \"lastUpdated\": \"2025-06-14T21:09:20.349+00:00\",\r\n        \"source\": \"#f87cda29d958108b\"\r\n    },\r\n    \"status\": \"finished\",\r\n    \"class\": {\r\n        \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActCode\",\r\n        \"code\": \"AMB\",\r\n        \"display\": \"Ambulatory\"\r\n    },\r\n    \"serviceType\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/service-type\",\r\n                \"code\": \"57\",\r\n                \"display\": \"Immunization\"\r\n            }\r\n        ],\r\n        \"text\": \"Well-Child Visit\"\r\n    },\r\n    \"subject\": {\r\n        \"reference\": \"Example-Patient-ID-01\",\r\n        \"display\": \"Sofia Ramirez\"\r\n    },\r\n    \"period\": {\r\n        \"start\": \"2025-05-01T09:30:00+08:00\",\r\n        \"end\": \"2025-05-01T10:00:00+08:00\"\r\n    },\r\n    \"location\": [\r\n        {\r\n            \"location\": {\r\n                \"reference\": \"Example-Location-ID-01\",\r\n                \"display\": \"Barangay Health Station C\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Seir}}/Encounter/",
+							"host": [
+								"{{Seir}}"
+							],
+							"path": [
+								"Encounter",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create RelatedPerson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resourceType\": \"RelatedPerson\",\r\n    \"id\": \"Example-RelatedPerson-ID-01\",\r\n    \"meta\": {\r\n        \"versionId\": \"1\",\r\n        \"lastUpdated\": \"2025-06-14T19:14:09.935+00:00\",\r\n        \"source\": \"#1f53e41c351d5539\",\r\n        \"profile\": [\r\n            \"http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-relatedperson.html\"\r\n        ]\r\n    },\r\n    \"identifier\": [\r\n        {\r\n            \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n            \"value\": \"MARIAR-PHILHEALTH-001\"\r\n        }\r\n    ],\r\n    \"patient\": {\r\n        \"reference\": \"Patient/Example-Patient-ID-01\"\r\n    },\r\n    \"relationship\": [\r\n        {\r\n            \"coding\": [\r\n                {\r\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0063\",\r\n                    \"code\": \"MTH\",\r\n                    \"display\": \"Mother\"\r\n                }\r\n            ],\r\n            \"text\": \"Mother\"\r\n        }\r\n    ],\r\n    \"name\": [\r\n        {\r\n            \"use\": \"official\",\r\n            \"family\": \"Ramirez\",\r\n            \"given\": [\r\n                \"Maria\"\r\n            ]\r\n        }\r\n    ],\r\n    \"gender\": \"female\",\r\n    \"birthDate\": \"1965-05-20\",\r\n    \"address\": [\r\n        {\r\n            \"extension\": [\r\n                {\r\n                    \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-region\",\r\n                    \"valueCodeableConcept\": {\r\n                        \"coding\": [\r\n                            {\r\n                                \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-regions\",\r\n                                \"code\": \"130000000\",\r\n                                \"display\": \"National Capital Region (NCR)\"\r\n                            }\r\n                        ]\r\n                    }\r\n                },\r\n                {\r\n                    \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-province\",\r\n                    \"valueCodeableConcept\": {\r\n                        \"coding\": [\r\n                            {\r\n                                \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-provinces\",\r\n                                \"code\": \"137400000\",\r\n                                \"display\": \"National Capital Region - Fourth District\"\r\n                            }\r\n                        ]\r\n                    }\r\n                },\r\n                {\r\n                    \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-city\",\r\n                    \"valueCodeableConcept\": {\r\n                        \"coding\": [\r\n                            {\r\n                                \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-cities\",\r\n                                \"code\": \"137401\",\r\n                                \"display\": \"Quezon City\"\r\n                            }\r\n                        ]\r\n                    }\r\n                },\r\n                {\r\n                    \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-barangay\",\r\n                    \"valueCodeableConcept\": {\r\n                        \"coding\": [\r\n                            {\r\n                                \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-barangays\",\r\n                                \"code\": \"137401001\",\r\n                                \"display\": \"Barangay 1\"\r\n                            }\r\n                        ]\r\n                    }\r\n                }\r\n            ],\r\n            \"use\": \"home\",\r\n            \"line\": [\r\n                \"123 Main Street\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Seir}}/RelatedPerson/",
+							"host": [
+								"{{Seir}}"
+							],
+							"path": [
+								"RelatedPerson",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Bundle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"resourceType\": \"Bundle\",\r\n  \"id\": \"Example-Bundle-ID-01\",\r\n  \"type\": \"transaction\",\r\n  \"entry\": [\r\n    {\r\n      \"fullUrl\": \"urn:uuid:Example-Patient-ID-02\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Encounter\",\r\n        \"id\": \"Example-Encounter-ID-02\",\r\n        \"meta\": {\r\n          \"versionId\": \"1\",\r\n          \"lastUpdated\": \"2025-06-14T21:09:20.349+00:00\",\r\n          \"source\": \"#f87cda29d958108b\"\r\n        },\r\n        \"status\": \"finished\",\r\n        \"class\": {\r\n          \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActCode\",\r\n          \"code\": \"AMB\",\r\n          \"display\": \"Ambulatory\"\r\n        },\r\n        \"serviceType\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://terminology.hl7.org/CodeSystem/service-type\",\r\n              \"code\": \"57\",\r\n              \"display\": \"Immunization\"\r\n            }\r\n          ],\r\n          \"text\": \"Well-Child Visit\"\r\n        },\r\n        \"subject\": {\r\n          \"reference\": \"Patient/Example-Patient-ID-02\",\r\n          \"display\": \"Sofia Ramirez\"\r\n        },\r\n        \"period\": {\r\n          \"start\": \"2025-05-01T09:30:00+08:00\",\r\n          \"end\": \"2025-05-01T10:00:00+08:00\"\r\n        },\r\n        \"location\": [\r\n          {\r\n            \"location\": {\r\n              \"reference\": \"Location/Example-Location-ID-02\",\r\n              \"display\": \"Barangay Health Station C\"\r\n            }\r\n          }\r\n        ]\r\n      },\r\n      \"request\": {\r\n        \"method\": \"PUT\",\r\n        \"url\": \"Encounter/Example-Encounter-ID-02\"\r\n      }\r\n    },\r\n    {\r\n      \"fullUrl\": \"urn:uuid:Example-Immunization-ID-2\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Immunization\",\r\n        \"id\": \"Example-Immunization-ID-02\",\r\n        \"meta\": {\r\n          \"versionId\": \"1\",\r\n          \"lastUpdated\": \"2025-06-14T19:31:38.046+00:00\",\r\n          \"source\": \"#d6ea2aeab3cf876e\",\r\n          \"profile\": [\r\n            \"http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-immunization.html\"\r\n          ]\r\n        },\r\n        \"extension\": [\r\n          {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/patient-philhealth-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n              \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n              \"value\": \"SOFIAR-PHILHEALTH-007\"\r\n            }\r\n          },\r\n          {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/patient-philsys-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n              \"system\": \"http://nationalidsystem.gov.ph/psn\",\r\n              \"value\": \"SOFIAR-PHILSYS-008\"\r\n            }\r\n          },\r\n          {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/mother-philhealth-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n              \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n              \"value\": \"SOFIAR-MOTHERS-PHILHEALTH-ABCDE\"\r\n            }\r\n          },\r\n          {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/mother-philsys-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n              \"system\": \"http://nationalidsystem.gov.ph/psn\",\r\n              \"value\": \"SOFIAR-MOTHERS-PHILSYS-FGHIJ\"\r\n            }\r\n          }\r\n        ],\r\n        \"identifier\": [\r\n          {\r\n            \"system\": \"urn:oid:1.2.3.4.5.6.7.8.9.16\",\r\n            \"value\": \"IMZ-2025-0007\"\r\n          }\r\n        ],\r\n        \"status\": \"completed\",\r\n        \"statusReason\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://terminology.hl7.org/CodeSystem/immunization-status-reason\",\r\n              \"code\": \"MEDREC\",\r\n              \"display\": \"Medical record incomplete\"\r\n            }\r\n          ],\r\n          \"text\": \"Child presented with incomplete vaccination records, requiring catch-up.\"\r\n        },\r\n        \"vaccineCode\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://snomed.info/sct\",\r\n              \"code\": \"394579007\",\r\n              \"display\": \"Measles, mumps, and rubella vaccine\"\r\n            },\r\n            {\r\n              \"system\": \"urn://example.com/eLMIS-vaccine-codes\",\r\n              \"code\": \"MMR001\",\r\n              \"display\": \"MMR Vaccine\"\r\n            }\r\n          ],\r\n          \"text\": \"MMR Vaccine\"\r\n        },\r\n        \"patient\": {\r\n          \"reference\": \"Patient/Example-Patient-ID-02\",\r\n          \"display\": \"Sofia Ramirez\"\r\n        },\r\n        \"occurrenceDateTime\": \"2025-05-01T09:45:00+08:00\",\r\n        \"recorded\": \"2025-05-01T10:15:00+08:00\",\r\n        \"primarySource\": true,\r\n        \"location\": {\r\n          \"reference\": \"Location/Example-Location-ID-01\",\r\n          \"display\": \"Barangay Health Station C\"\r\n        },\r\n        \"lotNumber\": \"WXYZ7890\",\r\n        \"expirationDate\": \"2026-10-31\",\r\n        \"site\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActSite\",\r\n              \"code\": \"LA\",\r\n              \"display\": \"Left Arm\"\r\n            }\r\n          ]\r\n        },\r\n        \"route\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration\",\r\n              \"code\": \"SC\",\r\n              \"display\": \"Subcutaneous\"\r\n            }\r\n          ]\r\n        },\r\n        \"doseQuantity\": {\r\n          \"value\": 0.5,\r\n          \"unit\": \"mL\",\r\n          \"system\": \"http://unitsofmeasure.org\",\r\n          \"code\": \"mL\"\r\n        },\r\n        \"performer\": [\r\n          {\r\n            \"actor\": {\r\n              \"display\": \"Dr. Maria Santos\"\r\n            }\r\n          }\r\n        ],\r\n        \"note\": [\r\n          {\r\n            \"text\": \"Child presented with incomplete vaccination records. Administered second dose of MMR as part of catch-up. Mother advised on full vaccination schedule.\"\r\n          }\r\n        ],\r\n        \"protocolApplied\": [\r\n          {\r\n            \"series\": \"MMR 2-dose series\",\r\n            \"doseNumberPositiveInt\": 2,\r\n            \"seriesDosesPositiveInt\": 2\r\n          }\r\n        ]\r\n      },\r\n      \"request\": {\r\n        \"method\": \"PUT\",\r\n        \"url\": \"Immunization/Example-Immunization-ID-02\"\r\n      }\r\n    },\r\n    {\r\n      \"fullUrl\": \"urn:uuid:Example-Location-ID-02\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Location\",\r\n        \"id\": \"Example-Location-ID-02\",\r\n        \"meta\": {\r\n          \"versionId\": \"1\",\r\n          \"lastUpdated\": \"2025-06-14T21:13:54.530+00:00\",\r\n          \"source\": \"#6bcbd657f9af6d1f\",\r\n          \"profile\": [\r\n            \"https://build.fhir.org/ig/UP-Manila-SILab/ph-core/StructureDefinition-ph-core-location.html\"\r\n          ]\r\n        },\r\n        \"identifier\": [\r\n          {\r\n            \"system\": \"https://nhfr.doh.gov.ph/VActivefacilitiesList\",\r\n            \"value\": \"86683\"\r\n          }\r\n        ],\r\n        \"status\": \"active\",\r\n        \"name\": \"Barangay Health Station C\",\r\n        \"mode\": \"instance\",\r\n        \"physicalType\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://terminology.hl7.org/CodeSystem/location-physical-type\",\r\n              \"code\": \"bu\",\r\n              \"display\": \"Building\"\r\n            }\r\n          ],\r\n          \"text\": \"Barangay Health Station\"\r\n        }\r\n      },\r\n      \"request\": {\r\n        \"method\": \"PUT\",\r\n        \"url\": \"Location/Example-Location-ID-02\"\r\n      }\r\n    },\r\n    {\r\n      \"fullUrl\": \"urn:uuid:Example-Patient-ID-02\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Patient\",\r\n        \"id\": \"Example-Patient-ID-02\",\r\n        \"meta\": {\r\n          \"versionId\": \"1\",\r\n          \"lastUpdated\": \"2025-06-14T19:21:58.552+00:00\",\r\n          \"source\": \"#3477d32d6026e8e2\",\r\n          \"profile\": [\r\n            \"http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-patient.html\"\r\n          ]\r\n        },\r\n        \"extension\": [\r\n          {\r\n            \"url\": \"urn://example.com.ph/StructureDefinition/IndigenousPeople\",\r\n            \"valueBoolean\": true\r\n          }\r\n        ],\r\n        \"identifier\": [\r\n          {\r\n            \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n            \"value\": \"SOFIAR-PHILHEALTH-007\"\r\n          },\r\n          {\r\n            \"system\": \"http://nationalidsystem.gov.ph/psn\",\r\n            \"value\": \"SOFIAR-PHILSYS-008\"\r\n          }\r\n        ],\r\n        \"name\": [\r\n          {\r\n            \"use\": \"official\",\r\n            \"family\": \"Ramirez\",\r\n            \"given\": [\r\n              \"Sofia\"\r\n            ]\r\n          }\r\n        ],\r\n        \"gender\": \"female\",\r\n        \"birthDate\": \"1990-01-15\",\r\n        \"address\": [\r\n          {\r\n            \"extension\": [\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-region\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-regions\",\r\n                      \"code\": \"130000000\",\r\n                      \"display\": \"National Capital Region (NCR)\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-province\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-provinces\",\r\n                      \"code\": \"137400000\",\r\n                      \"display\": \"National Capital Region - Fourth District\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-city\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-cities\",\r\n                      \"code\": \"137401\",\r\n                      \"display\": \"Quezon City\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-barangay\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-barangays\",\r\n                      \"code\": \"137401001\",\r\n                      \"display\": \"Barangay 1\"\r\n                    }\r\n                  ]\r\n                }\r\n              }\r\n            ],\r\n            \"use\": \"home\",\r\n            \"line\": [\r\n              \"123 Main Street\"\r\n            ]\r\n          }\r\n        ]\r\n      },\r\n      \"request\": {\r\n        \"method\": \"PUT\",\r\n        \"url\": \"Patient/Example-Patient-ID-02\"\r\n      }\r\n    },\r\n    {\r\n      \"fullUrl\": \"urn:uuid:Example-RelatedPerson-ID-02\",\r\n      \"resource\": {\r\n        \"resourceType\": \"RelatedPerson\",\r\n        \"id\": \"Example-RelatedPerson-ID-02\",\r\n        \"meta\": {\r\n          \"versionId\": \"1\",\r\n          \"lastUpdated\": \"2025-06-14T19:14:09.935+00:00\",\r\n          \"source\": \"#1f53e41c351d5539\",\r\n          \"profile\": [\r\n            \"http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-relatedperson.html\"\r\n          ]\r\n        },\r\n        \"identifier\": [\r\n          {\r\n            \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n            \"value\": \"MARIAR-PHILHEALTH-001\"\r\n          }\r\n        ],\r\n        \"patient\": {\r\n          \"reference\": \"Patient/Example-Patient-ID-02\"\r\n        },\r\n        \"relationship\": [\r\n          {\r\n            \"coding\": [\r\n              {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0063\",\r\n                \"code\": \"MTH\",\r\n                \"display\": \"Mother\"\r\n              }\r\n            ],\r\n            \"text\": \"Mother\"\r\n          }\r\n        ],\r\n        \"name\": [\r\n          {\r\n            \"use\": \"official\",\r\n            \"family\": \"Ramirez\",\r\n            \"given\": [\r\n              \"Maria\"\r\n            ]\r\n          }\r\n        ],\r\n        \"gender\": \"female\",\r\n        \"birthDate\": \"1965-05-20\",\r\n        \"address\": [\r\n          {\r\n            \"extension\": [\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-region\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-regions\",\r\n                      \"code\": \"130000000\",\r\n                      \"display\": \"National Capital Region (NCR)\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-province\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-provinces\",\r\n                      \"code\": \"137400000\",\r\n                      \"display\": \"National Capital Region - Fourth District\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-city\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-cities\",\r\n                      \"code\": \"137401\",\r\n                      \"display\": \"Quezon City\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-barangay\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-barangays\",\r\n                      \"code\": \"137401001\",\r\n                      \"display\": \"Barangay 1\"\r\n                    }\r\n                  ]\r\n                }\r\n              }\r\n            ],\r\n            \"use\": \"home\",\r\n            \"line\": [\r\n              \"123 Main Street\"\r\n            ]\r\n          }\r\n        ]\r\n      },\r\n      \"request\": {\r\n        \"method\": \"PUT\",\r\n        \"url\": \"RelatedPerson/Example-RelatedPerson-ID-02\"\r\n      }\r\n    },\r\n   {\r\n      \"fullUrl\": \"urn:uuid:Example-Patient-ID-02\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Encounter\",\r\n        \"id\": \"Example-Encounter-ID-02\",\r\n        \"meta\": {\r\n          \"versionId\": \"1\",\r\n          \"lastUpdated\": \"2025-06-14T21:09:20.349+00:00\",\r\n          \"source\": \"#f87cda29d958108b\"\r\n        },\r\n        \"status\": \"finished\",\r\n        \"class\": {\r\n          \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActCode\",\r\n          \"code\": \"AMB\",\r\n          \"display\": \"Ambulatory\"\r\n        },\r\n        \"serviceType\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://terminology.hl7.org/CodeSystem/service-type\",\r\n              \"code\": \"57\",\r\n              \"display\": \"Immunization\"\r\n            }\r\n          ],\r\n          \"text\": \"Well-Child Visit\"\r\n        },\r\n        \"subject\": {\r\n          \"reference\": \"Patient/Example-Patient-ID-02\",\r\n          \"display\": \"Sofia Ramirez\"\r\n        },\r\n        \"period\": {\r\n          \"start\": \"2025-05-01T09:30:00+08:00\",\r\n          \"end\": \"2025-05-01T10:00:00+08:00\"\r\n        },\r\n        \"location\": [\r\n          {\r\n            \"location\": {\r\n              \"reference\": \"Location/Example-Location-ID-02\",\r\n              \"display\": \"Barangay Health Station C\"\r\n            }\r\n          }\r\n        ]\r\n      },\r\n      \"request\": {\r\n        \"method\": \"PUT\",\r\n        \"url\": \"Encounter/Example-Encounter-ID-02\"\r\n      }\r\n    },\r\n    {\r\n      \"fullUrl\": \"urn:uuid:Example-Immunization-ID-02\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Immunization\",\r\n        \"id\": \"Example-Immunization-ID-02\",\r\n        \"meta\": {\r\n          \"versionId\": \"1\",\r\n          \"lastUpdated\": \"2025-06-14T19:31:38.046+00:00\",\r\n          \"source\": \"#d6ea2aeab3cf876e\",\r\n          \"profile\": [\r\n            \"http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-immunization.html\"\r\n          ]\r\n        },\r\n        \"extension\": [\r\n          {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/patient-philhealth-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n              \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n              \"value\": \"SOFIAR-PHILHEALTH-007\"\r\n            }\r\n          },\r\n          {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/patient-philsys-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n              \"system\": \"http://nationalidsystem.gov.ph/psn\",\r\n              \"value\": \"SOFIAR-PHILSYS-008\"\r\n            }\r\n          },\r\n          {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/mother-philhealth-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n              \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n              \"value\": \"SOFIAR-MOTHERS-PHILHEALTH-ABCDE\"\r\n            }\r\n          },\r\n          {\r\n            \"url\": \"http://example.org/fhir/StructureDefinition/mother-philsys-id-on-immunization\",\r\n            \"valueIdentifier\": {\r\n              \"system\": \"http://nationalidsystem.gov.ph/psn\",\r\n              \"value\": \"SOFIAR-MOTHERS-PHILSYS-FGHIJ\"\r\n            }\r\n          }\r\n        ],\r\n        \"identifier\": [\r\n          {\r\n            \"system\": \"urn:oid:1.2.3.4.5.6.7.8.9.16\",\r\n            \"value\": \"IMZ-2025-0007\"\r\n          }\r\n        ],\r\n        \"status\": \"completed\",\r\n        \"statusReason\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://terminology.hl7.org/CodeSystem/immunization-status-reason\",\r\n              \"code\": \"MEDREC\",\r\n              \"display\": \"Medical record incomplete\"\r\n            }\r\n          ],\r\n          \"text\": \"Child presented with incomplete vaccination records, requiring catch-up.\"\r\n        },\r\n        \"vaccineCode\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://snomed.info/sct\",\r\n              \"code\": \"394579007\",\r\n              \"display\": \"Measles, mumps, and rubella vaccine\"\r\n            },\r\n            {\r\n              \"system\": \"urn://example.com/eLMIS-vaccine-codes\",\r\n              \"code\": \"MMR001\",\r\n              \"display\": \"MMR Vaccine\"\r\n            }\r\n          ],\r\n          \"text\": \"MMR Vaccine\"\r\n        },\r\n        \"patient\": {\r\n          \"reference\": \"Patient/Example-Patient-ID-02\",\r\n          \"display\": \"Sofia Ramirez\"\r\n        },\r\n        \"occurrenceDateTime\": \"2025-05-01T09:45:00+08:00\",\r\n        \"recorded\": \"2025-05-01T10:15:00+08:00\",\r\n        \"primarySource\": true,\r\n        \"location\": {\r\n          \"reference\": \"Location/Example-Location-ID-02\",\r\n          \"display\": \"Barangay Health Station C\"\r\n        },\r\n        \"lotNumber\": \"WXYZ7890\",\r\n        \"expirationDate\": \"2026-10-31\",\r\n        \"site\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActSite\",\r\n              \"code\": \"LA\",\r\n              \"display\": \"Left Arm\"\r\n            }\r\n          ]\r\n        },\r\n        \"route\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration\",\r\n              \"code\": \"SC\",\r\n              \"display\": \"Subcutaneous\"\r\n            }\r\n          ]\r\n        },\r\n        \"doseQuantity\": {\r\n          \"value\": 0.5,\r\n          \"unit\": \"mL\",\r\n          \"system\": \"http://unitsofmeasure.org\",\r\n          \"code\": \"mL\"\r\n        },\r\n        \"performer\": [\r\n          {\r\n            \"actor\": {\r\n              \"display\": \"Dr. Maria Santos\"\r\n            }\r\n          }\r\n        ],\r\n        \"note\": [\r\n          {\r\n            \"text\": \"Child presented with incomplete vaccination records. Administered second dose of MMR as part of catch-up. Mother advised on full vaccination schedule.\"\r\n          }\r\n        ],\r\n        \"protocolApplied\": [\r\n          {\r\n            \"series\": \"MMR 2-dose series\",\r\n            \"doseNumberPositiveInt\": 2,\r\n            \"seriesDosesPositiveInt\": 2\r\n          }\r\n        ]\r\n      },\r\n      \"request\": {\r\n        \"method\": \"PUT\",\r\n        \"url\": \"Immunization/Example-Immunization-ID-02\"\r\n      }\r\n    },\r\n    {\r\n      \"fullUrl\": \"urn:uuid:Example-Location-ID-02\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Location\",\r\n        \"id\": \"Example-Location-ID-02\",\r\n        \"meta\": {\r\n          \"versionId\": \"1\",\r\n          \"lastUpdated\": \"2025-06-14T21:13:54.530+00:00\",\r\n          \"source\": \"#6bcbd657f9af6d1f\",\r\n          \"profile\": [\r\n            \"https://build.fhir.org/ig/UP-Manila-SILab/ph-core/StructureDefinition-ph-core-location.html\"\r\n          ]\r\n        },\r\n        \"identifier\": [\r\n          {\r\n            \"system\": \"https://nhfr.doh.gov.ph/VActivefacilitiesList\",\r\n            \"value\": \"86683\"\r\n          }\r\n        ],\r\n        \"status\": \"active\",\r\n        \"name\": \"Barangay Health Station C\",\r\n        \"mode\": \"instance\",\r\n        \"physicalType\": {\r\n          \"coding\": [\r\n            {\r\n              \"system\": \"http://terminology.hl7.org/CodeSystem/location-physical-type\",\r\n              \"code\": \"bu\",\r\n              \"display\": \"Building\"\r\n            }\r\n          ],\r\n          \"text\": \"Barangay Health Station\"\r\n        }\r\n      },\r\n      \"request\": {\r\n        \"method\": \"PUT\",\r\n        \"url\": \"Location/Example-Location-ID-02\"\r\n      }\r\n    },\r\n    {\r\n      \"fullUrl\": \"urn:uuid:Example-Patient-ID-02\",\r\n      \"resource\": {\r\n        \"resourceType\": \"Patient\",\r\n        \"id\": \"Example-Patient-ID-02\",\r\n        \"meta\": {\r\n          \"versionId\": \"1\",\r\n          \"lastUpdated\": \"2025-06-14T19:21:58.552+00:00\",\r\n          \"source\": \"#3477d32d6026e8e2\",\r\n          \"profile\": [\r\n            \"http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-patient.html\"\r\n          ]\r\n        },\r\n        \"extension\": [\r\n          {\r\n            \"url\": \"urn://example.com.ph/StructureDefinition/IndigenousPeople\",\r\n            \"valueBoolean\": true\r\n          }\r\n        ],\r\n        \"identifier\": [\r\n          {\r\n            \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n            \"value\": \"SOFIAR-PHILHEALTH-007\"\r\n          },\r\n          {\r\n            \"system\": \"http://nationalidsystem.gov.ph/psn\",\r\n            \"value\": \"SOFIAR-PHILSYS-008\"\r\n          }\r\n        ],\r\n        \"name\": [\r\n          {\r\n            \"use\": \"official\",\r\n            \"family\": \"Ramirez\",\r\n            \"given\": [\r\n              \"Sofia\"\r\n            ]\r\n          }\r\n        ],\r\n        \"gender\": \"female\",\r\n        \"birthDate\": \"1990-01-15\",\r\n        \"address\": [\r\n          {\r\n            \"extension\": [\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-region\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-regions\",\r\n                      \"code\": \"130000000\",\r\n                      \"display\": \"National Capital Region (NCR)\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-province\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-provinces\",\r\n                      \"code\": \"137400000\",\r\n                      \"display\": \"National Capital Region - Fourth District\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-city\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-cities\",\r\n                      \"code\": \"137401\",\r\n                      \"display\": \"Quezon City\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-barangay\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-barangays\",\r\n                      \"code\": \"137401001\",\r\n                      \"display\": \"Barangay 1\"\r\n                    }\r\n                  ]\r\n                }\r\n              }\r\n            ],\r\n            \"use\": \"home\",\r\n            \"line\": [\r\n              \"123 Main Street\"\r\n            ]\r\n          }\r\n        ]\r\n      },\r\n      \"request\": {\r\n        \"method\": \"PUT\",\r\n        \"url\": \"Patient/Example-Patient-ID-02\"\r\n      }\r\n    },\r\n    {\r\n      \"fullUrl\": \"urn:uuid:Example-RelatedPerson-ID-02\",\r\n      \"resource\": {\r\n        \"resourceType\": \"RelatedPerson\",\r\n        \"id\": \"Example-RelatedPerson-ID-02\",\r\n        \"meta\": {\r\n          \"versionId\": \"1\",\r\n          \"lastUpdated\": \"2025-06-14T19:14:09.935+00:00\",\r\n          \"source\": \"#1f53e41c351d5539\",\r\n          \"profile\": [\r\n            \"http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-relatedperson.html\"\r\n          ]\r\n        },\r\n        \"identifier\": [\r\n          {\r\n            \"system\": \"http://www.philhealth.gov.ph/pin\",\r\n            \"value\": \"MARIAR-PHILHEALTH-001\"\r\n          }\r\n        ],\r\n        \"patient\": {\r\n          \"reference\": \"Patient/Example-Patient-ID-02\"\r\n        },\r\n        \"relationship\": [\r\n          {\r\n            \"coding\": [\r\n              {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0063\",\r\n                \"code\": \"MTH\",\r\n                \"display\": \"Mother\"\r\n              }\r\n            ],\r\n            \"text\": \"Mother\"\r\n          }\r\n        ],\r\n        \"name\": [\r\n          {\r\n            \"use\": \"official\",\r\n            \"family\": \"Ramirez\",\r\n            \"given\": [\r\n              \"Maria\"\r\n            ]\r\n          }\r\n        ],\r\n        \"gender\": \"female\",\r\n        \"birthDate\": \"1965-05-20\",\r\n        \"address\": [\r\n          {\r\n            \"extension\": [\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-region\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-regions\",\r\n                      \"code\": \"130000000\",\r\n                      \"display\": \"National Capital Region (NCR)\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-province\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-provinces\",\r\n                      \"code\": \"137400000\",\r\n                      \"display\": \"National Capital Region - Fourth District\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-city\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-cities\",\r\n                      \"code\": \"137401\",\r\n                      \"display\": \"Quezon City\"\r\n                    }\r\n                  ]\r\n                }\r\n              },\r\n              {\r\n                \"url\": \"http://fhir.org/guides/ph-core/StructureDefinition/ph-core-barangay\",\r\n                \"valueCodeableConcept\": {\r\n                  \"coding\": [\r\n                    {\r\n                      \"system\": \"http://fhir.org/guides/ph-core/CodeSystem/ph-barangays\",\r\n                      \"code\": \"137401001\",\r\n                      \"display\": \"Barangay 1\"\r\n                    }\r\n                  ]\r\n                }\r\n              }\r\n            ],\r\n            \"use\": \"home\",\r\n            \"line\": [\r\n              \"123 Main Street\"\r\n            ]\r\n          }\r\n        ]\r\n      },\r\n      \"request\": {\r\n        \"method\": \"PUT\",\r\n        \"url\": \"RelatedPerson/Example-RelatedPerson-ID-02\"\r\n      }\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Seir}}/Bundle/",
+							"host": [
+								"{{Seir}}"
+							],
+							"path": [
+								"Bundle",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Submit one Immunization transcation by providing the following information"
+		},
+		{
+			"name": "Task 3 Get the immunization Record",
+			"item": [
+				{
+					"name": "Get the patient record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Seir}}/Patient/ID/$everything",
+							"host": [
+								"{{Seir}}"
+							],
+							"path": [
+								"Patient",
+								"ID",
+								"$everything"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
