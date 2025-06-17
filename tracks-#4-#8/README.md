@@ -20,16 +20,15 @@ Note: FHIRLab is an open interoprability sandbox. FHIR server in FHIRLab will re
 
 The tools below allow you to perform experimentation immediately and interact with others. They are the preferred method of exploring FHIR at the connectathon.
 
-- [Postman Collection](../sample-data) 
+- [Postman Collection](../postman-collection) 
 - [FHIR validator](https://validator.fhirlab.net)
-- [Sample JSON files for PH Core profile](https://build.fhir.org/ig/UP-Manila-SILab/ph-core/artifacts.html#example-example-instances)
 
 ## Activity 4: Utilize the Immunization Module and Retrieve Immunization Patient Data
 
 | Step | Activity                                       | Notes                                                                 | 
 |------|------------------------------------------------|-----------------------------------------------------------------------|
 | 1    | Recall the Immunization patient `ID`           | Patient logical ID was created after the bundle resource was successfully posted.|
-| 2    | Setup access to test FHIR server               |                                                                       |
+| 2    | Setup access to test FHIR server               | Refer to the environment under the [Postman Collection](../postman-collection) folder.|
 | 3    | Get `Immunization` Patient data                | /Immunization/?patient=Patient/{id}                                   |
 
 
@@ -56,7 +55,7 @@ Facility Code | For this Connectathon, please assign your own organization a Fac
 
 ## Supplimentary guides for local testing
 
-- [Starting a HAPI server - `FHIR CLI`](https://hapifhir.io/hapi-fhir/docs/tools/hapi_fhir_cli.html#server-run-server): Offers the endpoints above
+- [Starting a HAPI server - `FHIR CLI`](https://hapifhir.io/hapi-fhir/docs/tools/hapi_fhir_cli.html#server-run-server)
 - [Uploading FHIR IGs - `UploadFIG`](https://github.com/brianpos/UploadFIG#user-content-running-the-utility)
 - [Uploading Resources - `Postman local app`](https://www.postman.com/downloads/)
 - [Validating Resources - `FHIR validator`](https://confluence.hl7.org/spaces/FHIR/pages/35718580/Using+the+FHIR+Validator)

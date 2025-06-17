@@ -1,6 +1,6 @@
  # Immunization FHIR® Connectathon – June 2025, Tagaytay City, Philippines
 
-<!--![Connectathon_Graphic] (https://github.com/user-attachments/assets/1d6afce8-7200-45c0-a7ac-02913a0e1ba0)-->
+![alt text](<Immunization Connectathon Graphic.png>)
 
 The 2025 Immunization FHIR® Connectathon is hosted and co-organized by the Standards and Interoperability Laboratory (UPM SILab), under the University of the Philippines Manila National Institutes of Health’s National Telehealth Center together with the Department of Health (DOH), with technical assistance from the United Nations Children's Fund (UNICEF) and support from the Australian Government Department of Foreign Affairs and Trade (DFAT). The Connectathon is part of UP Manila's Long Term Agreement with UNICEF with the first engagement about Interoperability Development and Implementation: Implementing a standards-based immunization Implementation Guide through the use of international terminology and data exchange standards.
 
@@ -20,7 +20,7 @@ The project's objectives are as follows:
 |-----------------|-----------------|
 | Data Exchange      | Successfully exchange immunization records using FHIR Immunization resource with at least two other participants (to SEIR and from another participant) |
 | Terminology Mapping  | Validate use of existing codes across the test scenarios |
-| Profile Conformance  | Validate conformance to the Immunization Implementation Guide with the <ins>**draft**</ins> PH Core as reference |
+| Profile Conformance  | Validate conformance to the draft Immunization Implementation Guide with the draft PH Core IG as reference |
 | Client-Server Interactions  | Demonstrate read, search, and update interactions between client apps and FHIR servers|
 | Record Validation  | Cross-check vaccination records for completeness based on the Immunization Minimum Data Set |
 | Feedback and Reporting  | Submit structured feedback on gaps in profile conformance, terminology, or server responses |
@@ -39,7 +39,7 @@ The project's objectives are as follows:
 - [Tracks #1 and #5](tracks-%231-%235)
 - [Tracks #2, #3, #6, and #7](tracks-%232-%233-%236-%237)
 - [Tracks #4 and #8](tracks-%234-%238)
-- [Postman Collection and Environment](sample-data)
+- [Postman Collection and Environment](postman-collection)
 
 
 ---

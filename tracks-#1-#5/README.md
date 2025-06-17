@@ -20,7 +20,7 @@ Note: FHIRLab is an open interoprability sandbox. FHIR server in FHIRLab will re
 
 The tools below allow you to perform experimentation immediately and interact with others. They are the preferred method of exploring FHIR at the connectathon.
 
-- [Postman Collection](../sample-data) 
+- [Postman Collection](../postman-collection/) 
 - [FHIR validator](https://validator.fhirlab.net)
 - [Sample JSON files for PH Core profile](https://build.fhir.org/ig/UP-Manila-SILab/ph-core/artifacts.html#example-example-instances)
 
@@ -28,14 +28,14 @@ The tools below allow you to perform experimentation immediately and interact wi
 
 | Step | Activity                                       | Notes                                                                 | 
 |------|------------------------------------------------|-----------------------------------------------------------------------|
-| 1    | Review Immunization FHIR IG Value Sets         | Official URL of Value Sets were provided.                             |
-| 2    | Setup access to test FHIR server               |                                                                       |
+| 1    | Review Immunization FHIR IG Value Sets         | Official URL of Value Sets can be found on the [Immunization FHIR IG Artifacts](https://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/artifacts.html).                       |
+| 2    | Setup access to test FHIR server               | Refer to the environment under the [Postman Collection](../postman-collection) folder. |
 | 3    | Get `Vaccine Brand Name` Value Set             | $expand can be used to display Value Set codes.|
 | 4    | Get `Vaccine Generic Name` Value Set           | $expand can be used to display Value Set codes.|
 | 5    | Get `Action Taken` Value Set                    | $expand can be used to display Value Set codes.|
 | 6    | Get `Action Reason` Value Set                   | $expand can be used to display Value Set codes.|
 | 7    | Get `Vaccination Encounter Type` Value Set      | $expand can be used to display Value Set codes.|
-| 8    | Get `Administrative Gender` Value Set           | This is a required Value Set in FHIR. $expand can be used to display Value Set codes.|
+| 8    | Get `Administrative Gender` Value Set           | This is a required Value Set in FHIR which can be found on the [PH Core Patient](https://build.fhir.org/ig/UP-Manila-SILab/ph-core/StructureDefinition-ph-core-patient.html) resource.|
 
 
 ### Use Case Success
@@ -57,7 +57,7 @@ Facility Code | For this Connectathon, please assign your own organization a Fac
 
 ## Supplimentary guides for local testing
 
-- [Starting a HAPI server - `FHIR CLI`](https://hapifhir.io/hapi-fhir/docs/tools/hapi_fhir_cli.html#server-run-server): Offers the endpoints above
+- [Starting a HAPI server - `FHIR CLI`](https://hapifhir.io/hapi-fhir/docs/tools/hapi_fhir_cli.html#server-run-server)
 - [Uploading FHIR IGs - `UploadFIG`](https://github.com/brianpos/UploadFIG#user-content-running-the-utility)
 - [Uploading Resources - `Postman local app`](https://www.postman.com/downloads/)
 - [Validating Resources - `FHIR validator`](https://confluence.hl7.org/spaces/FHIR/pages/35718580/Using+the+FHIR+Validator)
