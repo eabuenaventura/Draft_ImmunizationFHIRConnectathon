@@ -14,7 +14,7 @@ Track | Version | Server | Endpoint
 Track #2 and #3 | R4 | UPM SILab (FHIRLab) |https://cdr.fhirlab.net/fhir 
 Track #6 and #7 | R4 | Pointwest (SEIR)    |https://hapifhir-api-128112993769.asia-southeast1.run.app
 
-Note: FHIRLab is an open interoprability sandbox. FHIR server in FHIRLab will remain accessible for testing and on-going learning activites post connectathon.
+Note: FHIRLab is an open interoperability sandbox. FHIR server in FHIRLab will remain accessible for testing and on-going learning activities post connectathon.
 
 ## Additional tools provided for connectathon
 
@@ -74,7 +74,7 @@ Non FHIR National Codes | For [Philippine Standard Geographic Code (PSGC)](https
 Storage of Codes | It is recommended for this event for your application to store your copy of the PSGC and NHFR codes.
 Facility Code | For this Connectathon, please assign your own organization a Facility Code that will be used throughout the event.
 
-## Supplimentary guides for local testing
+## Supplementary guides for local testing
 
 - [Starting a HAPI server - `FHIR CLI`](https://hapifhir.io/hapi-fhir/docs/tools/hapi_fhir_cli.html#server-run-server)
 - [Uploading FHIR IGs - `UploadFIG`](https://github.com/brianpos/UploadFIG#user-content-running-the-utility)
