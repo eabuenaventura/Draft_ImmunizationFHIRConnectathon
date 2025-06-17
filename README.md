@@ -2,7 +2,9 @@
 
 ![alt text](<Immunization Connectathon Graphic.png>)
 
-The 2025 Immunization FHIR® Connectathon is hosted and co-organized by the Standards and Interoperability Laboratory (UPM SILab), under the University of the Philippines Manila National Institutes of Health’s National Telehealth Center (NTHC) together with the Department of Health (DOH) and United Nations Children's Fund (UNICEF). This program is supported by the Australian Government Department of Foreign Affairs and Trade (DFAT) with technical assistance from the Commonwealth Scientific and Industrial Research Organisation (CSIRO). The Connectathon is part of UP Manila's Long Term Agreement with UNICEF with the first engagement about Interoperability Development and Implementation: Implementing a standards-based immunization Implementation Guide through the use of international terminology and data exchange standards.
+The 2025 Immunization FHIR® Connectathon is hosted and co-organized by the Standards and Interoperability Laboratory (UPM SILab), under the University of the Philippines Manila National Institutes of Health’s National Telehealth Center (NTHC) together with the Department of Health (DOH) and United Nations Children's Fund (UNICEF). This program is supported by the Australian Government Department of Foreign Affairs and Trade (DFAT) with technical assistance from the Commonwealth Scientific and Industrial Research Organisation (CSIRO). 
+
+The Immunization Connectathon is part of UP Manila's Long-Term Agreement with UNICEF with its first engagement focusing on Interoperability Development and Implementation: Implementing a standards-based immunization Implementation Guide through the use of international terminology and data exchange standards.
 
 The project's objectives are as follows:
 - Develop the necessary interoperability resources to ensure linkage of SEIR with other systems. **(FHIR® Immunization Implementation Guide)**
