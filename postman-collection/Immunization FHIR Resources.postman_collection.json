@@ -1,11 +1,11 @@
 {
 	"info": {
-		"_postman_id": "1e58f090-9767-45b7-9876-02a40258f119",
+		"_postman_id": "e4660c60-9b0a-4a1e-9d50-36043c8a00f0",
 		"name": "Immunization FHIR Resources",
 		"description": "A collection of FHIR resources",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "44529312",
-		"_collection_link": "https://errolbuenaventura.postman.co/workspace/Errol-Buenaventura's-Workspace~4b27ab57-090d-46e1-8f2f-34653e95551d/collection/44529312-1e58f090-9767-45b7-9876-02a40258f119?action=share&source=collection_link&creator=44529312"
+		"_collection_link": "https://errolbuenaventura.postman.co/workspace/Errol-Buenaventura's-Workspace~4b27ab57-090d-46e1-8f2f-34653e95551d/collection/44529312-e4660c60-9b0a-4a1e-9d50-36043c8a00f0?action=share&source=collection_link&creator=44529312"
 	},
 	"item": [
 		{
@@ -137,7 +137,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{fhir}}/ValueSet/$expand?url=http://seir.dohnip.org/valueset/encounter-type",
+							"raw": "{{fhir}}/ValueSet/$expand?url=",
 							"host": [
 								"{{fhir}}"
 							],
@@ -148,7 +148,7 @@
 							"query": [
 								{
 									"key": "url",
-									"value": "http://seir.dohnip.org/valueset/encounter-type"
+									"value": ""
 								}
 							]
 						}
@@ -214,6 +214,42 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Search CodeSystem using URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tx}}/CodeSystem/administrative-gender",
+					"host": [
+						"{{tx}}"
+					],
+					"path": [
+						"CodeSystem",
+						"administrative-gender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get CodeSystem using ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tx}}/CodeSystem/administrative-gender",
+					"host": [
+						"{{tx}}"
+					],
+					"path": [
+						"CodeSystem",
+						"administrative-gender"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
