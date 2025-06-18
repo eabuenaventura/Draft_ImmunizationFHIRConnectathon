@@ -22,7 +22,6 @@ The tools below allow you to perform experimentation immediately and interact wi
 
 - [Postman Collection](../postman-collection/) 
 - [FHIR validator](https://validator.fhirlab.net)
-- [Sample JSON files for PH Core profile](https://build.fhir.org/ig/UP-Manila-SILab/ph-core/artifacts.html#example-example-instances)
 
 ## Activity 1: Utilize the Terminology Server and Retrieve Value Set Codes
 
@@ -30,12 +29,13 @@ The tools below allow you to perform experimentation immediately and interact wi
 |------|------------------------------------------------|-----------------------------------------------------------------------|
 | 1    | Review Immunization FHIR IG Value Sets         | Official URL of Value Sets can be found on the [Immunization FHIR IG Artifacts](https://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/artifacts.html).                       |
 | 2    | Setup access to test FHIR server               | Refer to the environment under the [Postman Collection](../postman-collection) folder. |
-| 3    | Get `Vaccine Brand Name` Value Set             | $expand can be used to display Value Set codes.|
-| 4    | Get `Vaccine Generic Name` Value Set           | $expand can be used to display Value Set codes.|
-| 5    | Get `Action Taken` Value Set                    | $expand can be used to display Value Set codes.|
-| 6    | Get `Action Reason` Value Set                   | $expand can be used to display Value Set codes.|
-| 7    | Get `Vaccination Encounter Type` Value Set      | $expand can be used to display Value Set codes.|
-| 8    | Get `Administrative Gender` Value Set           | This is a required Value Set in FHIR which can be found on the [PH Core Patient](https://build.fhir.org/ig/UP-Manila-SILab/ph-core/StructureDefinition-ph-core-patient.html) resource.|
+| 3    | Get `Administrative Gender` Value Set           | This is a required Value Set in FHIR which can be found on the [PH Core Patient](https://build.fhir.org/ig/UP-Manila-SILab/ph-core/StructureDefinition-ph-core-patient.html) resource.|
+| 4    | Get `Vaccine Brand Name` Value Set             | $expand can be used to display Value Set codes.|
+| 5    | Get `Vaccine Generic Name` Value Set           | $expand can be used to display Value Set codes.|
+| 6    | Get `Action Taken` Value Set                    | $expand can be used to display Value Set codes.|
+| 7    | Get `Action Reason` Value Set                   | $expand can be used to display Value Set codes.|
+| 8    | Get `Vaccination Encounter Type` Value Set      | $expand can be used to display Value Set codes.|
+
 
 
 ### Use Case Success

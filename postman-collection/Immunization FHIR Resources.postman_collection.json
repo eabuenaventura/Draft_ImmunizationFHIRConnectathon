@@ -1,24 +1,25 @@
 {
 	"info": {
-		"_postman_id": "90b77f4a-0869-4ba7-ad8a-abb4e494a332",
+		"_postman_id": "1e58f090-9767-45b7-9876-02a40258f119",
 		"name": "Immunization FHIR Resources",
 		"description": "A collection of FHIR resources",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26439483"
+		"_exporter_id": "44529312",
+		"_collection_link": "https://errolbuenaventura.postman.co/workspace/Errol-Buenaventura's-Workspace~4b27ab57-090d-46e1-8f2f-34653e95551d/collection/44529312-1e58f090-9767-45b7-9876-02a40258f119?action=share&source=collection_link&creator=44529312"
 	},
 	"item": [
 		{
 			"name": "Acitivty 1  Get the ValueSet",
 			"item": [
 				{
-					"name": "Get Gender",
+					"name": "Get Sex",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Seir}}/ValueSet/$expand?url=http://hl7.org/fhir/ValueSet/administrative-gender",
+							"raw": "{{fhir}}/ValueSet/$expand?url=http://hl7.org/fhir/ValueSet/administrative-gender",
 							"host": [
-								"{{Seir}}"
+								"{{fhir}}"
 							],
 							"path": [
 								"ValueSet",
@@ -40,9 +41,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Seir}}/ValueSet/$expand?url=http://seir.dohnip.org/valueset/vaccine-name",
+							"raw": "{{fhir}}/ValueSet/$expand?url=http://seir.dohnip.org/valueset/vaccine-name",
 							"host": [
-								"{{Seir}}"
+								"{{fhir}}"
 							],
 							"path": [
 								"ValueSet",
@@ -64,9 +65,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Seir}}/ValueSet/$expand?url=http://seir.dohnip.org/valueset/vaccine-generic-name",
+							"raw": "{{fhir}}/ValueSet/$expand?url=http://seir.dohnip.org/valueset/vaccine-generic-name",
 							"host": [
-								"{{Seir}}"
+								"{{fhir}}"
 							],
 							"path": [
 								"ValueSet",
@@ -86,7 +87,23 @@
 					"name": "Get Action Taken",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{fhir}}/ValueSet/$expand?url=http://seir.dohnip.org/valueset/action-taken",
+							"host": [
+								"{{fhir}}"
+							],
+							"path": [
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://seir.dohnip.org/valueset/action-taken"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -94,7 +111,23 @@
 					"name": "Get Action Reason",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{fhir}}/ValueSet/$expand?url=http://seir.dohnip.org/valueset/action-reason",
+							"host": [
+								"{{fhir}}"
+							],
+							"path": [
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://seir.dohnip.org/valueset/action-reason"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -102,7 +135,23 @@
 					"name": "Get Encouter Type",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{fhir}}/ValueSet/$expand?url=http://seir.dohnip.org/valueset/encounter-type",
+							"host": [
+								"{{fhir}}"
+							],
+							"path": [
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://seir.dohnip.org/valueset/encounter-type"
+								}
+							]
+						}
 					},
 					"response": []
 				}
@@ -127,9 +176,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{Seir}}",
+							"raw": "{{fhir}}",
 							"host": [
-								"{{Seir}}"
+								"{{fhir}}"
 							]
 						}
 					},
@@ -156,9 +205,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{Seir}}",
+							"raw": "{{fhir}}",
 							"host": [
-								"{{Seir}}"
+								"{{fhir}}"
 							]
 						}
 					},
