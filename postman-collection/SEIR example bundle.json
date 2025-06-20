@@ -1,0 +1,397 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "urn:uuid:patient-0001",
+            "resource": {
+                "resourceType": "Patient",
+                "meta": {
+                    "profile": [
+                        "urn://example.com/ph-core/fhir/StructureDefinition/ph-core-patient"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "http://example.org/fhir/StructureDefinition/indigenous",
+                        "valueBoolean": true
+                    }
+                ],
+                "identifier": [
+                    {
+                        "system": "http://www.philhealth.gov.ph/pin",
+                        "type": {
+                            "text": "PhilSysId"
+                        },
+                        "value": "SOFIAR-PHILHEALTH-007"
+                    },
+                    {
+                        "system": "http://nationalidsystem.gov.ph/psn",
+                        "type": {
+                            "text": "PhilHealthId"
+                        },
+                        "value": "SOFIAR-PHILSYS-008"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Ramirez",
+                        "given": [
+                            "Sofia"
+                        ]
+                    }
+                ],
+                "gender": "female",
+                "birthDate": "1990-01-15",
+                "address": [
+                    {
+                        "extension": [
+                            {
+                                "url": "http://fhir.org/guides/ph-core/StructureDefinition/ph-core-region",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://fhir.org/guides/ph-core/CodeSystem/ph-regions",
+                                            "code": "130000000",
+                                            "display": "National Capital Region (NCR)"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "url": "http://fhir.org/guides/ph-core/StructureDefinition/ph-core-province",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://fhir.org/guides/ph-core/CodeSystem/ph-provinces",
+                                            "code": "137400000",
+                                            "display": "National Capital Region - Fourth District"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "url": "http://fhir.org/guides/ph-core/StructureDefinition/ph-core-city",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://fhir.org/guides/ph-core/CodeSystem/ph-cities",
+                                            "code": "137401",
+                                            "display": "Quezon City"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "url": "http://fhir.org/guides/ph-core/StructureDefinition/ph-core-barangay",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://fhir.org/guides/ph-core/CodeSystem/ph-barangays",
+                                            "code": "137401001",
+                                            "display": "Barangay 1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "use": "home",
+                        "line": [
+                            "123 Main Street"
+                        ]
+                    }
+                ]
+            },
+            "request": {
+                "method": "POST",
+                "url": "Patient"
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:relatedperson-0009",
+            "resource": {
+                "resourceType": "RelatedPerson",
+                "meta": {
+                    "profile": [
+                        " urn://example.com/seirfhirig/fhir/StructureDefinition/seir-relatedperson-profile"
+                        // "http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-relatedperson.html"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "system": "http://www.philhealth.gov.ph/pin",
+                        "type": {
+                            "text": "PhilSysId"
+                        },
+                        "value": "MARIAR-PHILHEALTH-001"
+                    }
+                ],
+                "patient": {
+                    "reference": "urn:uuid:patient-0001"
+                },
+                "relationship": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0063",
+                                "code": "mother"
+                            }
+                        ]
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Ramirez",
+                        "given": [
+                            "Maria"
+                        ]
+                    }
+                ],
+                "gender": "female",
+                "birthDate": "1965-05-20",
+                "address": [
+                    {
+                        "extension": [
+                            {
+                                "url": "http://fhir.org/guides/ph-core/StructureDefinition/ph-core-region",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://fhir.org/guides/ph-core/CodeSystem/ph-regions",
+                                            "code": "130000000",
+                                            "display": "National Capital Region (NCR)"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "url": "http://fhir.org/guides/ph-core/StructureDefinition/ph-core-province",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://fhir.org/guides/ph-core/CodeSystem/ph-provinces",
+                                            "code": "137400000",
+                                            "display": "National Capital Region - Fourth District"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "url": "http://fhir.org/guides/ph-core/StructureDefinition/ph-core-city",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://fhir.org/guides/ph-core/CodeSystem/ph-cities",
+                                            "code": "137401",
+                                            "display": "Quezon City"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "url": "http://fhir.org/guides/ph-core/StructureDefinition/ph-core-barangay",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://fhir.org/guides/ph-core/CodeSystem/ph-barangays",
+                                            "code": "137401001",
+                                            "display": "Barangay 1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "use": "home",
+                        "line": [
+                            "123 Main Street"
+                        ]
+                    }
+                ]
+            },
+            "request": {
+                "method": "POST",
+                "url": "RelatedPerson"
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:encounter-0009",
+            "resource": {
+                "resourceType": "Encounter",
+                "meta": {
+                    "profile": [
+                        "urn://example.com/ph-core/fhir/StructureDefinition/ph-core-encounter"
+                        // "http://build.fhir.org/ig/UP-Manila-SILab/ph-core/fhir/StructureDefinition/ph-core-encounter"
+                    ]
+                },
+                "status": "finished",
+                "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "AMB",
+                    "display": "Ambulatory"
+                },
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://example.org/immunization-type", // Static
+                                "code": "CAMPAIGN" // Immunization Type Campaign or Routine
+                            }
+                        ]
+                    }
+                ],
+                "serviceType": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/service-type",
+                                "code": 57,
+                                "display": "immunization"
+                            }
+                        ],
+                        "text": "Well-Child Visit"
+                    }
+                ],
+                "subject": {
+                    "reference": "urn:uuid:patient-0001"
+                },
+                "period": {
+                    "start": "2025-05-01T09:30:00+08:00",
+                    "end": "2025-05-01T10:00:00+08:00"
+                },
+                "location": [
+                    {
+                        "location": {
+                            "reference": "Location/86683"
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "POST",
+                "url": "Encounter"
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:immunization-0009",
+            "resource": {
+                "resourceType": "Immunization",
+                "meta": {
+                    "profile": [
+                        "urn://example.com.ph/StructureDefinition/ph-immunization"
+                        // "http://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/branches/master/StructureDefinition-seir-immunization.html"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "http://example.org/fhir/StructureDefinition/batch-lot", // Static
+                        "valueString": "BATCH7890" // Changeable
+                    },
+                    {
+                        "url": "http://example.org/fhir/StructureDefinition/action-code", // Static
+                        "valueString": "VACCINATE" // Changeable (must match immunization status or action code)
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/ph-barangay",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://example.org/barangay-codes",
+                                    "code": "0401005001"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/ph-city",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://example.org/city-codes",
+                                    "code": "1381701000"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/ph-province",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://example.org/province-codes",
+                                    "code": "0401000000"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/ph-region",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://example.org/region-codes",
+                                    "code": "0400000000"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/ph-street-address",
+                        "valueString": "Sampaloc"
+                    }
+                ],
+                "status": "completed",
+                "vaccineCode": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/vaccination-brand", // Static
+                            "code": "generic-hep-b" // Must match vaccine_brand_name change base on db
+                        },
+                        {
+                            "system": "http://hl7.org/vaccination-generic-name", // Static
+                            "code": "SEIR-GenericName-00001" // Must match vaccine_generic_name change base on db
+                        }
+                    ]
+                },
+                "patient": {
+                    "reference": "urn:uuid:patient-0001"
+                },
+                "occurrenceDateTime": "2025-05-01T09:45:00",
+                "recorded": "2025-05-01T10:15:00+08:00",
+                "primarySource": true,
+                "location": {
+                    "reference": "Location/DOH000000000000001"
+                },
+                "encounter": {
+                    "reference": "urn:uuid:encounter-0009"
+                },
+                "lotNumber": "WXYZ7890",
+                "doseQuantity": {
+                    "value": 0.5,
+                    "unit": "mL",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mL"
+                },
+                "performer": [
+                    {
+                        "actor": {
+                            "display": "Dr. Maria Santos"
+                        }
+                    }
+                ],
+                "protocolApplied": [
+                    {
+                        "series": "MMR 2-dose series",
+                        "doseNumberPositiveInt": 2,
+                        "seriesDosesPositiveInt": 2
+                    }
+                ]
+            },
+            "request": {
+                "method": "POST",
+                "url": "Immunization"
+            }
+        }
+    ]
+}

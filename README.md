@@ -14,7 +14,9 @@ The project's objectives are as follows:
 ## Important Information
 
 - [Immunization Connectathon Program (June 18 to 20, 2025)](https://docs.google.com/document/d/1ZhGiq2hBP_GjHPMt0mrmMDQac4xZioBsp2v8EPYcqfU/edit?usp=drive_link)
-- [Immunization Connectathon Logistic Note](https://docs.google.com/document/d/1fbSN0oHLXzEBDl8HvAIGGM-8iRUYSdeACN44viK4x20/edit?usp=drive_link) 
+- [Immunization Connectathon Logistic Note](https://docs.google.com/document/d/1fbSN0oHLXzEBDl8HvAIGGM-8iRUYSdeACN44viK4x20/edit?usp=drive_link)
+- [Draft Immunization FHIR Implementation Guide (IG)](https://build.fhir.org/ig/UP-Manila-SILab/immunizationfhirig/index.html)
+- [Draft PH Core FHIR Implementation Guide (IG)](https://build.fhir.org/ig/UP-Manila-SILab/ph-core/index.html) 
 
 ## Immunization Connectathon Objectives 
 
@@ -43,7 +45,12 @@ The project's objectives are as follows:
 - [Tracks #4 and #8](tracks-%234-%238)
 - [Postman Collection and Environment](postman-collection)
 
+## FHIR Servers available for testing during the Connectathon
 
+Track | Version | Server | Endpoint
+|----------|-------------|---------|-------------|
+Track #1 | R4 | UPM SILab (FHIRLab) |https://cdr.fhirlab.net/fhir 
+Track #5 | R4 | Pointwest (SEIR)    |https://hapifhir-api-128112993769.asia-southeast1.run.app
 ---
 
 Note: FHIR® is a registered trademark of Health Level Seven International.  
